@@ -1,0 +1,24 @@
+Bug list:
+
+1. Adding a participant with null values for firstname, lastName, email and presentation_title properties is allowed (test_id refference: 4)
+
+2. Any additional attributes can be added to the request body of an Add participant request with attendee role. This should be limited to the relevant properties. Cause: add_participants.json does not contain additionalProperties: False for this role's schema. (test_id refference: 5)
+
+3. Api doesn't throw Duplicate participant error when trying to create two participants with the same data in body. (test_id refference: 6)
+
+4. Api receives 200 OK response code and returns participant id when creating a participant with numbers instead of firstName and lastName values. (test_id refference; 7)
+
+5. Api receives 200 OK response code and returns and returns participant id when posting a create participant request with non-ascii characters (!@). (test_id refference: 9)
+
+6. Api receives 200 OK response code and returns and returns participant id when posting a create participant request with firstName value > 200 characters (test_id refference: 11)
+
+7. Api receives 200 OK response code and returns and returns participant id when posting a create participant request with space instead of value for firstName or lastName (test_id refference: 12)
+
+8. Api receives 200 OK response code and returns and returns participant id when posting a create participant request with a presentation_title value that has more than 50 characters (test_id refference: 17)
+
+9. Api receives 200 OK response code and returns and returns participant id when adding a fifth presenter. It returns the correct http code when adding the 6th. (test_id refference: 19)
+
+10. Response body contains "status": 0 when deleting inexistent participant (test_id refference: 41)
+
+11. Api receives 200 OK response code and returns and returns participant id when updating participant with empty string. (test_id refference: 52)
+
